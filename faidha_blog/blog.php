@@ -1,4 +1,8 @@
 <?php
+include('database.php');
+?>
+
+<?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -107,17 +111,17 @@ if (!$connection) {
       
       if (mysqli_num_rows($result) > 0) {
           // output data of each row
-          while($row = mysqli_fetch_assoc($result)) { ?>
-      <section class="posts">
+          while($row = mysqli_fetch_assoc($result)) { 
+     echo '<section class="posts">';
         
-        <div class="card" >
-            <img alt="posts" width="100%"> <? echo $row["Document"];?> </img>
-            <div class="card-container">
-              <h4><b> <? echo $row["Title"]; ?> </b></h4>
-              <p> <? echo $row["Explanations"]; ?>  </p>
-            </div>
-            <div class="time-date">
-                <p style="color: black; font-size: small;"> <strong> 10th Nov 2022</strong>|<span>10:10pm</span></p>
+      echo ' <div class="card" >';
+         echo '<img alt="posts" width="100%"'.  $row["Document"].'>'; 
+           echo '<div class="card-container">';
+            echo ' <h4><b> '. $row["Title"]. ' </b></h4>';
+            echo '<p> '. $row["Explanations"] .'  </p>'; 
+            echo'</div>';
+           echo '<div class="time-date">';
+              echo ' <p style="color: black; font-size: small;"> <strong> 10th Nov 2022</strong>|<span>10:10pm</span></p>';?>
                 <button>Delete</button>
                 <button>EDIT</button>
               </div>
@@ -128,7 +132,11 @@ if (!$connection) {
          <?php
            }
          } else {
-               echo "0 results";
+               echo '
+               <section class="posts">
+               <div class="card"><div class="card-container"><p>No Entries found.</p></div></div>
+               </section>
+               ';
                }
   
          mysqli_close($connection);

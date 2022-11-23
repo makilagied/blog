@@ -22,7 +22,8 @@ VALUES ('$title', '$file', '$exp')";
 if (mysqli_query($connection, $sql)) {
     // header('location: ../posts.html');
     echo"
-    <script>window.alert('records added' )</script>"; 
+    <script>window.alert('records added' )</script>
+    <script>window.open(' ../blog.php','_self' )</script>"; 
     
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($connection);

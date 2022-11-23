@@ -10,13 +10,13 @@
       <div class="title">Welcome </div>
       <div class="subtitle">Login to your blog account!</div>
       <div class="input-container ic2">
-        <input id="email" class="input" type="email" name="mail" placeholder=" " />
+        <input id="email" class="input" type="mail" name="mail" placeholder=" " required />
         <p id="email-error" style="display: none; color: red">Invalid Email address</p>
         <div class="cut cut-short"></div>
         <label for="email" class="placeholder">Email</label>
       </div>
       <div class="input-container ic2">
-        <input id="password" name="pwd" class="input" type="password" placeholder=" " />
+        <input id="password" name="pwd" class="input" type="password" placeholder=" " required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title=" Your Password must contain atleast one uppercase letter,number, a special character and not minimum of 8 characters."/>
         <div class="cut"></div>
         <label for="password" class="placeholder">Password</label>
       </div>
